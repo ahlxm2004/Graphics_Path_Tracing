@@ -1,7 +1,5 @@
 <center><h3>图形学渲染大作业：路径追踪 实验报告</h3></center>
 
-<center>吕先艨 2022013028</center>
-
 <b>一、基础要求</b>
 
 1. Whitted-Style 模型（反射、折射、阴影）
