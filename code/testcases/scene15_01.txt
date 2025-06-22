@@ -1,0 +1,104 @@
+Model {
+    tracing Whitted
+    OMP 96
+    antialias {
+        FXAA true
+    }
+    gamma 2.2
+}
+
+PerspectiveCamera {
+    center 0 0 15
+    direction 0 -0.04 -1
+    up 0 1 0
+    angle 40
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 2
+    PointLight {
+        position 0 5.99 -6
+        color 3 3 3
+    }
+    PointLight {
+        position 0 0 20
+        color 1 1 1
+    }
+}
+
+Materials {
+    numMaterials 7
+    Material { ambientColor 1 0.1 0.1
+        diffuseColor 1 0.1 0.1 
+        specularColor 1 1 1
+        shininess 20
+    }
+    ReflectiveMaterial {
+        rate 0.9
+    }
+    Material { ambientColor 0.5 0.1 0.55
+        diffuseColor 0.5 0.1 0.55
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material { ambientColor 0.02 0.2 0.04
+        diffuseColor 0.02 0.2 0.04
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material { ambientColor 0.1 0.7 0.9
+        diffuseColor 0.1 0.7 0.9
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material { ambientColor 0.3 0.2 0.04
+        diffuseColor 0.3 0.2 0.04
+        specularColor 1 1 1
+        shininess 20
+    }
+    RefractiveMaterial {
+        n 1.52
+        rate 0.9
+    }
+}
+
+Group {
+    numObjects 7
+    MaterialIndex 0
+    Plane {
+        normal 1 0 0
+        offset -6
+    }
+    MaterialIndex 1
+    Sphere {
+        center -3 -4.5 -4
+        radius 1.5
+    }
+    MaterialIndex 2
+    Plane {
+        normal -1 0 0
+        offset -6
+    }
+    MaterialIndex 3
+    Plane {
+        normal 0 1 0
+        offset -6
+    }
+    MaterialIndex 4
+    Plane {
+        normal 0 -1 0
+        offset -6
+    }
+    MaterialIndex 5
+    Plane {
+        normal 0 0 1
+        offset -16
+    }
+    MaterialIndex 6
+    Sphere {
+        center 3 -3.5 -4
+        radius 2.5
+    }
+}

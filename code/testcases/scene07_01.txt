@@ -1,0 +1,81 @@
+Model {
+    tracing Monte-Carlo
+    SPP 1024
+    rrProb 0.1
+    OMP 96
+    sampling NEE-cos-weighted
+    antialias {
+        Hammersley true
+        FXAA true
+    }
+    tmin 0.1
+}
+
+PerspectiveCamera {
+    center 200 0 -50
+    direction -1 0 0.2
+    up 0 0 1
+    angle 50
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 1
+    CircleLight {
+        normal X-
+        color 50 50 50
+        position 1200
+        Y 0
+        Z 120
+        radius 200
+    }
+}
+
+Textures {
+    numTextures 3
+    Texture texture/globe2048x1024.jpg
+    Texture texture/jupiter1024x512.jpg
+    Texture texture/venus1024x512.jpg
+}
+
+Materials {
+    numMaterials 3
+    PhongBRDFMaterial {
+        rho_d 0.4
+        rho_s 0.6
+        shininess 20
+        texture 0
+    }
+    PhongBRDFMaterial {
+        rho_d 0.5
+        rho_s 0.5
+        shininess 20
+        texture 1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.7
+        rho_s 0.3
+        shininess 20
+        texture 2
+    }
+}
+
+Group {
+    numObjects 3
+    MaterialIndex 0
+    Sphere {
+        center 0 60 20
+        radius 13
+    }
+    MaterialIndex 1
+    Sphere {
+        center -400 -150 150
+        radius 165
+    }
+    MaterialIndex 2
+    Sphere {
+        center 90 20 -50
+        radius 12.7
+    }
+}

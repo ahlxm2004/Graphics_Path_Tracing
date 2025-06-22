@@ -1,0 +1,141 @@
+Model {
+    tracing Whitted
+    background 0.2 0.2 0.2
+    OMP 96
+    antialias {
+        FXAA true
+    }
+}
+
+PerspectiveCamera {
+    center 0 2 13
+    direction 0 -0.1 -1
+    up 0 1 0
+    angle 75
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 2
+    PointLight {
+        position 0 0 14
+        color 1 1 1
+    }
+    PointLight {
+        position 0 5.99 0
+        color 1 1 1
+    }
+}
+
+Materials {
+    numMaterials 9
+    Material {
+        ambientColor 1 0.1 0.1
+        diffuseColor 1 0.1 0.1 
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material {
+        ambientColor 0.1 1 0.1
+        diffuseColor 0.1 1 0.1 
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material {
+        ambientColor 0.1 0.1 1
+        diffuseColor 0.1 0.1 1 
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material {
+        ambientColor 0.3 0.3 0.3
+        diffuseColor 0.3 0.3 0.3 
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material {
+        ambientColor 0.3 0.8 0.8
+        diffuseColor 0.3 0.8 0.8 
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material {
+        ambientColor 0.7 0.3 0.8
+        diffuseColor 0.7 0.3 0.8
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material {
+        ambientColor 1 1 1
+        diffuseColor 1 1 1
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material {
+        ambientColor 0.1 0.7 0.9
+        diffuseColor 0.1 0.7 0.9
+        specularColor 1 1 1
+        shininess 20
+    }
+    Material {
+        ambientColor 0.8 0.7 0.1
+        diffuseColor 0.8 0.7 0.1
+        specularColor 1 1 1
+        shininess 20
+    }
+}
+
+Group {
+    numObjects 10
+    MaterialIndex 0
+    Sphere {
+        center 3 4 -2
+        radius 1.5
+    }
+    MaterialIndex 1
+    Sphere {
+        center 0.5 0.5 -1
+        radius 2.2
+    }
+    MaterialIndex 2
+    Sphere {
+        center -3 3 -1 
+        radius 2
+    }
+    Sphere {
+        center 3 -3 0
+        radius 1.6
+    }
+    MaterialIndex 3
+    Sphere {
+        center 0 3.5 1
+        radius 0.7
+    }
+    MaterialIndex 4
+    Plane {
+        normal -1 0 0
+        offset -6
+    }
+    MaterialIndex 5
+    Plane {
+        normal 1 0 0
+        offset -6
+    }
+    MaterialIndex 6
+    Plane {
+        normal 0 1 0
+        offset -5
+    }
+    MaterialIndex 7
+    Plane {
+        normal 0 -1 0
+        offset -6
+    }
+    MaterialIndex 8
+    Plane {
+        normal 0 0 1
+        offset -16
+    }
+}
+

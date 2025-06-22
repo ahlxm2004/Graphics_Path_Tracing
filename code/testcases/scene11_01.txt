@@ -1,0 +1,123 @@
+Model {
+    tracing Monte-Carlo
+    SPP 1024
+    rrProb 0.1
+    OMP 96
+    sampling NEE-cos-weighted
+    antialias {
+        Hammersley true
+        FXAA true
+    }
+    gamma 2.2
+}
+
+PerspectiveCamera {
+    center 0 2 13
+    direction 0 -0.1 -1
+    up 0 1 0
+    angle 75
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 2
+    RectLight {
+        normal Z-
+        color 20 20 20
+        position 14
+        X -2 2
+        Y -2 2
+    }
+    RectLight {
+        normal Y-
+        color 10 10 10
+        position 5.99
+        Z -3 3
+        X -3 3
+    }
+}
+
+Textures {
+    numTextures 1
+    Texture texture/bunny3072x3072.jpg
+}
+
+Materials {
+    numMaterials 6
+    PhongBRDFMaterial {
+        rho_d 0.4
+        rho_s 0.6
+        shininess 20
+        texture 0
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 0.15 0.6 0.1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 0.5 0.15 0.6
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 1 1 1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 0.07 0.4 0.6
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 0.6 0.5 0.07
+    }
+}
+
+Group {
+    numObjects 6
+    MaterialIndex 0
+    Transform {
+        Translate 1 -5.5 0
+        Scale 45 45 45
+        YRotate 15
+        TriangleMesh {
+            obj_file mesh/bunny_66k.obj
+            use_BVH true
+        }
+    }
+    MaterialIndex 1
+    Plane {
+        normal -1 0 0
+        offset -6
+    }
+    MaterialIndex 2
+    Plane {
+        normal 1 0 0
+        offset -6
+    }
+    MaterialIndex 3
+    Plane {
+        normal 0 1 0
+        offset -6
+    }
+    MaterialIndex 4
+    Plane {
+        normal 0 -1 0
+        offset -6
+    }
+    MaterialIndex 5
+    Plane {
+        normal 0 0 1
+        offset -14
+    }
+}

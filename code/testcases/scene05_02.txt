@@ -1,0 +1,153 @@
+Model {
+    tracing Monte-Carlo
+    SPP 1024
+    rrProb 0.1
+    OMP 96
+    sampling NEE-cos-weighted
+    antialias {
+        Hammersley true
+        FXAA true
+    }
+}
+
+PerspectiveCamera {
+    center 0 2 13
+    direction 0 -0.1 -1
+    up 0 1 0
+    angle 75
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 2
+    RectLight {
+        normal Z-
+        color 20 20 20
+        position 14
+        X -2 2
+        Y -2 2
+    }
+    RectLight {
+        normal Y-
+        color 40 40 40
+        position 5.99
+        Z -3 3
+        X -3 3
+    }
+}
+
+Materials {
+    numMaterials 11
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 1 0.1 0.1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.1 1 0.1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.1 0.1 1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.1 0.6 0.1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.3 0.7 0.2
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.7 0.3 0.8
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 0.4 0.4 0.4
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.1 0.7 0.9
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.8 0.7 0.1
+    }
+    RefractiveMaterial {
+        n 1.52
+        rate 0.9
+    }
+    ReflectiveMaterial {
+        rate 0.9
+    }
+}
+
+Group {
+    numObjects 8
+    MaterialIndex 0
+    MaterialIndex 1
+    MaterialIndex 10
+    Sphere {
+        center -3 -3.7 3
+        radius 1.3
+    }
+    MaterialIndex 2
+    Sphere {
+        center 3 -3.4 1
+        radius 1.6
+    }
+    MaterialIndex 3
+    Transform {
+        Translate  0 -6.3 -5   
+        Scale 20 20 20 
+        TriangleMesh {
+            obj_file mesh/bunny_1k.obj
+            use_BVH true
+        }
+    }
+    MaterialIndex 4
+    Plane {
+        normal -1 0 0
+        offset -6
+    }
+    MaterialIndex 5
+    Plane {
+        normal 1 0 0
+        offset -6
+    }
+    MaterialIndex 6
+    Plane {
+        normal 0 1 0
+        offset -5
+    }
+    MaterialIndex 7
+    Plane {
+        normal 0 -1 0
+        offset -6
+    }
+    MaterialIndex 8
+    Plane {
+        normal 0 0 1
+        offset -14
+    }
+}

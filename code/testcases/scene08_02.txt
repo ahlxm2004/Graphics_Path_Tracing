@@ -1,0 +1,75 @@
+Model {
+    tracing Monte-Carlo
+    SPP 32
+    rrProb 0.1
+    OMP 96
+    sampling MIS
+    antialias {
+        Hammersley true
+        FXAA true
+    }
+    gamma 2.2
+}
+
+PerspectiveCamera {
+    center 32 0 10
+    direction -1 0 0
+    up 0 0 1
+    angle 50
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 1
+    CircleLight {
+        normal Z-
+        color 5000 5000 5000
+        position 40
+        X 0
+        Y 0
+        radius 0.5
+    }
+}
+
+Materials {
+    numMaterials 3
+    PhongBRDFMaterial {
+        rho_d 0.1
+        rho_s 0.7
+        shininess 20
+        color 0.8 0.8 0.2
+    }
+    CookBRDFMaterial {
+        rho_d 0.1
+        rho_s 0.7
+        alpha 0.3
+        F0 1 0.85 0.57
+        color 0.8 0.8 0.2
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.15
+        shininess 10
+        color 0.7 0.3 0.8
+    }
+}
+
+Group {
+    numObjects 3
+    MaterialIndex 0
+    Sphere {
+        center -5 -8 5
+        radius 5
+    }
+    MaterialIndex 1
+    Sphere {
+        center -5 8 5
+        radius 5
+    }
+    MaterialIndex 2
+    Plane {
+        normal 0 0 1
+        offset 0
+    }
+}

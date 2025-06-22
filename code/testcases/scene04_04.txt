@@ -1,0 +1,146 @@
+Model {
+    tracing Monte-Carlo
+    SPP 1024
+    rrProb 0.1
+    OMP 96
+    sampling MIS
+    antialias {
+        Hammersley true
+        FXAA true
+    }
+}
+
+PerspectiveCamera {
+    center 0 2 13
+    direction 0 -0.1 -1
+    up 0 1 0
+    angle 45
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 2
+    RectLight {
+        normal Z-
+        color 70 70 70
+        position 14
+        X -3 3
+        Y -3 3
+    }
+    CircleLight {
+        normal Y-
+        color 70 70 70
+        position 5.99
+        Z -4
+        X 0
+        radius 2
+    }
+}
+
+Materials {
+    numMaterials 11
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 1 0.1 0.1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.1 1 0.1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.1 0.1 1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.9 0.1 0.4
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.3 0.8 0.5
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.7 0.3 0.8
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.9 0.9 0.6
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.1 0.7 0.9
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 20
+        color 0.8 0.7 0.1
+    }
+    RefractiveMaterial {
+        n 1.52
+        rate 0.9
+    }
+    ReflectiveMaterial {
+        rate 0.9
+    }
+}
+
+Group {
+    numObjects 6
+    MaterialIndex 0
+    MaterialIndex 1
+    MaterialIndex 10
+    MaterialIndex 2
+    MaterialIndex 3
+    Transform {
+        Translate -2.5 -2 4
+        Scale 5 5 5
+        TriangleMesh {
+            obj_file mesh/tetrahedron01.obj
+            use_BVH true
+        }
+    }
+    MaterialIndex 4
+    Plane {
+        normal -1 0 0
+        offset -6
+    }
+    MaterialIndex 5
+    Plane {
+        normal 1 0 0
+        offset -6
+    }
+    MaterialIndex 6
+    Plane {
+        normal 0 1 0
+        offset -6
+    }
+    MaterialIndex 7
+    Plane {
+        normal 0 -1 0
+        offset -6
+    }
+    MaterialIndex 8
+    Plane {
+        normal 0 0 1
+        offset -14
+    }
+}

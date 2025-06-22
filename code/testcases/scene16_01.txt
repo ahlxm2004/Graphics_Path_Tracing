@@ -1,0 +1,122 @@
+Model {
+    tracing Monte-Carlo
+    SPP 4096
+    rrProb 0.1
+    OMP 96
+    sampling NEE-cos-weighted
+    antialias {
+        Hammersley true
+        FXAA true
+    }
+    gamma 2.2
+}
+
+PerspectiveCamera {
+    center 0 0 15
+    direction 0 -0.04 -1
+    up 0 1 0
+    angle 40
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 2
+    CircleLight {
+        normal Y-
+        color 300 300 300
+        position 5.99
+        Z -6
+        X 0
+        radius 2
+    }
+    CircleLight {
+        normal Z-
+        color 500 500 500
+        position 20
+        X 0
+        Y 0
+        radius 2
+    }
+}
+
+Materials {
+    numMaterials 7
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 1 0.1 0.1
+    }
+    FresnelMaterial {
+        n 1.33
+        rate 0.9
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 0.5 0.1 0.55
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 0.02 0.2 0.04
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 0.1 0.7 0.9
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 0.3 0.2 0.04
+    }
+    FresnelMaterial {
+        n 1.52
+        rate 0.9
+    }
+}
+
+Group {
+    numObjects 7
+    MaterialIndex 0
+    Plane {
+        normal 1 0 0
+        offset -6
+    }
+    MaterialIndex 1
+    Sphere {
+        center -3 -3.5 -4
+        radius 2.5
+    }
+    MaterialIndex 2
+    Plane {
+        normal -1 0 0
+        offset -6
+    }
+    MaterialIndex 3
+    Plane {
+        normal 0 1 0
+        offset -6
+    }
+    MaterialIndex 4
+    Plane {
+        normal 0 -1 0
+        offset -6
+    }
+    MaterialIndex 5
+    Plane {
+        normal 0 0 1
+        offset -16
+    }
+    MaterialIndex 6
+    Sphere {
+        center 3 -3.5 -4
+        radius 2.5
+    }
+}

@@ -1,0 +1,130 @@
+Model {
+    tracing Monte-Carlo
+    SPP 1024
+    rrProb 0.1
+    OMP 96
+    sampling MIS
+    antialias {
+        Hammersley true
+        FXAA true
+    }
+    gamma 2.2
+}
+
+PerspectiveCamera {
+    center 0 3 13
+    direction 0 -0.1 -1
+    up 0 1 0
+    angle 50
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 2
+    RectLight {
+        normal Z-
+        color 20 20 20
+        position 14
+        X -2 2
+        Y -2 2
+    }
+    RectLight {
+        normal Y-
+        color 10 10 10
+        position 5.99
+        Z -3 3
+        X -3 3
+    }
+}
+
+Textures {
+    numTextures 1
+    Texture texture/vase960x960.jpg
+}
+
+Materials {
+    numMaterials 6
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 30
+        texture 0
+        color 0.6 0.6 0.6
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 0.15 0.6 0.1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 0.5 0.15 0.6
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 1 1 1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 0.07 0.4 0.6
+    }
+    PhongBRDFMaterial {
+        rho_d 0.6
+        rho_s 0.4
+        shininess 20
+        color 0.6 0.5 0.07
+    }
+}
+
+Group {
+    numObjects 6
+    MaterialIndex 0
+    Transform {
+        Translate 0 0 -6
+        RevSurface {
+            profile BezierCurve {
+                controls
+                    [ -3  1.0 0 ]
+                    [  0 -2.5 0 ]
+                    [ -6 -2.5 0 ]
+                    [ -3 -6.0 0 ]
+            }
+            step 400 100
+            newton true
+        }
+    }
+    MaterialIndex 1
+    Plane {
+        normal -1 0 0
+        offset -6
+    }
+    MaterialIndex 2
+    Plane {
+        normal 1 0 0
+        offset -6
+    }
+    MaterialIndex 3
+    Plane {
+        normal 0 1 0
+        offset -6
+    }
+    MaterialIndex 4
+    Plane {
+        normal 0 -1 0
+        offset -6
+    }
+    MaterialIndex 5
+    Plane {
+        normal 0 0 1
+        offset -14
+    }
+}
+

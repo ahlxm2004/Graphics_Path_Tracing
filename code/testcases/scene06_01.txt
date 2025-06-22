@@ -1,0 +1,67 @@
+Model {
+    tracing Monte-Carlo
+    SPP 1024
+    rrProb 0.1
+    OMP 96
+    sampling NEE-cos-weighted
+    antialias {
+        Hammersley true
+        FXAA true
+    }
+}
+
+PerspectiveCamera {
+    center 16 0 10
+    direction -1 0 0.03
+    up 0 0 1
+    angle 100
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 1
+    CircleLight {
+        normal X-
+        color 5 5 5
+        position 50
+        Y 0
+        Z 120
+        radius 100
+    }
+}
+
+Textures {
+    numTextures 1
+    Texture texture/globe2048x1024.jpg
+}
+
+Materials {
+    numMaterials 2
+    PhongBRDFMaterial {
+        rho_d 0.5
+        rho_s 0.5
+        shininess 20
+        texture 0
+    }
+    PhongBRDFMaterial {
+        rho_d 0.7
+        rho_s 0.3
+        shininess 20
+        color 0.6 0.2 0.7
+    }
+}
+
+Group {
+    numObjects 2
+    MaterialIndex 0
+    Sphere {
+        center -10 0 20
+        radius 10
+    }
+    MaterialIndex 1
+    Plane {
+        normal 0 0 1
+        offset 0
+    }
+}

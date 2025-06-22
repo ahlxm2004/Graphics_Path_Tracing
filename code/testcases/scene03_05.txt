@@ -1,0 +1,158 @@
+Model {
+    tracing Monte-Carlo
+    SPP 1024
+    rrProb 0.1
+    OMP 96
+    sampling MIS
+    antialias {
+        Hammersley true
+    }
+}
+
+PerspectiveCamera {
+    center 0 2 13
+    direction 0 -0.1 -1
+    up 0 1 0
+    angle 75
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 2
+    RectLight {
+        normal Z-
+        color 100 100 100
+        position 14
+        X -2 2
+        Y -2 2
+    }
+    RectLight {
+        normal Y-
+        color 50 50 50
+        position 5.99
+        Z -2 2
+        X -2 2
+    }
+}
+
+Materials {
+    numMaterials 10
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 100
+        color 1 0.1 0.1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 100
+        color 0.1 1 0.1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 100
+        color 0.1 0.1 1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 100
+        color 0.3 0.3 0.3
+    }
+    ReflectiveMaterial {
+        rate 0.9
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 100
+        color 0.7 0.3 0.8
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 100
+        color 1 1 1
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 200
+        color 0.1 0.7 0.9
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 100
+        color 0.8 0.7 0.1
+    }
+    RefractiveMaterial {
+        n 1.52
+        rate 0.9
+    }
+}
+
+Group {
+    numObjects 12
+    MaterialIndex 0
+    Sphere {
+        center 3 4 -2
+        radius 1.5
+    }
+    MaterialIndex 1
+    Sphere {
+        center 0.5 0.5 -1
+        radius 2.2
+    }
+    MaterialIndex 2
+    Sphere {
+        center -3 3 -1 
+        radius 2
+    }
+    Sphere {
+        center 3 -3 0
+        radius 1.6
+    }
+    MaterialIndex 3
+    Sphere {
+        center 0 3.5 1
+        radius 0.7
+    }
+    MaterialIndex 4
+    Plane {
+        normal -1 0 0
+        offset -6
+    }
+    Sphere {
+        center -2 -3.3 4
+        radius 1.7
+    }
+    MaterialIndex 5
+    Plane {
+        normal 1 0 0
+        offset -6
+    }
+    MaterialIndex 6
+    Plane {
+        normal 0 1 0
+        offset -5
+    }
+    MaterialIndex 7
+    Plane {
+        normal 0 -1 0
+        offset -6
+    }
+    MaterialIndex 8
+    Plane {
+        normal 0 0 1
+        offset -16
+    }
+    MaterialIndex 9
+    TriangleMesh {
+        obj_file mesh/cube01.obj
+        use_BVH true
+    }
+}

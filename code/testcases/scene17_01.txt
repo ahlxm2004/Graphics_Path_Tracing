@@ -1,0 +1,133 @@
+Model {
+    tracing Monte-Carlo
+    SPP 4096
+    rrProb 0.1
+    OMP 96
+    sampling NEE-cos-weighted
+    antialias {
+        Hammersley true
+        FXAA true
+    }
+    gamma 2.2
+}
+
+PerspectiveCamera {
+    center 0 -0.5 2
+    direction 0 0 -1
+    up 0 1 0
+    angle 80
+    width 768
+    height 768
+}
+
+Lights {
+    numLights 1
+    CircleLight {
+        normal Y-
+        color 20 20 20
+        position 5.99
+        Z -7
+        X 0
+        radius 3
+    }
+}
+
+Materials {
+    numMaterials 8
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 1 0.1 0.1
+    }
+    FresnelMaterial {
+        n 1.33
+        rate 0.9
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 0.5 0.1 0.55
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 0.01 0.1 0
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 0.1 0.7 0.9
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 0.8 0.7 0.04
+    }
+    FresnelMaterial {
+        n 1.33
+        rate 0.95
+    }
+    PhongBRDFMaterial {
+        rho_d 0.3
+        rho_s 0.7
+        shininess 10
+        color 0.8 0.7 0.6
+    }
+}
+
+Group {
+    numObjects 10
+    MaterialIndex 0
+    Plane {
+        normal 1 0 0
+        offset -6
+    }
+    MaterialIndex 1
+    MaterialIndex 2
+    Plane {
+        normal -1 0 0
+        offset -6
+    }
+    MaterialIndex 3
+    Plane {
+        normal 0 1 0
+        offset -1.59
+    }
+    MaterialIndex 4
+    Plane {
+        normal 0 -1 0
+        offset -6
+    }
+    MaterialIndex 5
+    Plane {
+        normal 0 0 1
+        offset -12
+    }
+    MaterialIndex 6
+    TriangleMesh {
+        obj_file mesh/cube02.obj
+        use_BVH true
+    }
+    MaterialIndex 7
+    Sphere {
+        center 3 5 -10.5
+        radius 0.5
+    }
+    Sphere {
+        center 1 3 -10.5
+        radius 0.5
+    }
+    Sphere {
+        center -1 1 -10.5
+        radius 0.5
+    }
+    Sphere {
+        center -3 -1 -10.5
+        radius 0.5
+    }
+}
