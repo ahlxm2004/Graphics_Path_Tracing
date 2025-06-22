@@ -215,9 +215,9 @@ Hammersley 采样和 FXAA 都具有一定的抗锯齿效果，二者叠加效果
 
 2. 对于理想折射材料的情况，假设入射角 $\theta_i$，出射角 $\theta_o$，光线损失率为 $r$，由 BSDF 的能量守恒方程
    $$
-   \int_{\Omega}f_r\left(w_i,w'\right)\cos\theta\mathrm{d}w'=1-r
+   \int_{\Omega}f_r\left(\omega_i,\omega'\right)\cos\theta\mathrm{d}\omega'=1-r
    $$
-   可知 $$f_r\left(w_i,w_o\right)=\dfrac{1-r}{\cos\theta_o}$$，由渲染方程还需要乘上 $\cos\theta_i$ 的系数，因此在折射时光强需要乘上 $\left(1-r\right)\dfrac{\cos\theta_i}{\cos\theta_o}$；
+   可知 $$f_r\left(\omega_i,\omega\right)=\dfrac{1-r}{\cos\theta_o}\delta\left(\omega-\omega_o\right)$$，由渲染方程还需要乘上 $\cos\theta_i$ 的系数，因此在折射时光强需要乘上 $\left(1-r\right)\dfrac{\cos\theta_i}{\cos\theta_o}$；
 
 3. 在计算纹理时，对于球和旋转体的纹理，可直接由交点坐标用公式计算 UV 值；对三角网格，采取的是先找到相交的三角形，再计算三角形三点的权重，加权平均得到交点处的纹理值和法线方向；纹理用到了一些网络的图片，大部分是 jpg 或 png 格式，因此使用了 stb_image 代码库来实现各种不同格式的图片读取；
 
